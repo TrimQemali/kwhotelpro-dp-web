@@ -118,7 +118,6 @@
 
             &nbsp;&nbsp;
 
-            <button id="addroom">Add Room</button>
 
             <div class="toolbar-separator"></div>
 
@@ -212,13 +211,6 @@
                     await DayPilot.Http.post("backend_room_update.php", room);
                     dp.rows.update(room);
                 }},
-            { text: "Delete", onClick: async (args) => {
-                    const id = args.source.id;
-
-                    await DayPilot.Http.post("backend_room_delete.php", {id: id});
-                    dp.rows.remove(id);
-                }
-            }
         ]
     });
 
@@ -439,8 +431,6 @@
             return;
         }
 
-        const room = modal.result;
-        const {data: result} = await DayPilot.Http.post("backend_room_create.php", room);
 
         room.id = result.id;
         dp.resources.push(room);
