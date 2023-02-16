@@ -4,7 +4,7 @@ require_once '_db.php';
 $json = file_get_contents('php://input');
 $params = json_decode($json);
 
-$stmt = $db->prepare("UPDATE reservations SET name = :name, start = :start, end = :end, room_id = :room WHERE id = :id");
+$stmt = $db->prepare("UPDATE banjisht.rezerwacje, banjisht.klienci  SET klienci.Nazwisko = :name, rezerwacje.DataOd = :start, rezerwacje.DataDo = :end, rezerwacje.PokojID = :room WHERE rezerwacje.KlientID=klienci.KlientID AND rezerwacje.RezerwacjaID = :id");
 
 $stmt->bindParam(':id', $params->id);
 $stmt->bindParam(':start', $params->start);
