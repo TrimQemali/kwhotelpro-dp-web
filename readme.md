@@ -7,3 +7,5 @@ I found a great demo trial calendar in JavaScript, HTML and CSS from DayPilot, w
 
 KWHotel Database version 0.46.171
 If you need a modification for 0.47.XXX version, feel free to contact me.
+
+!!Creating new reservation is currently not supported as im planing to add user login features.!!
