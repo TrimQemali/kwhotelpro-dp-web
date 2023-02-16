@@ -4,7 +4,7 @@ require_once '_db.php';
 $json = file_get_contents('php://input');
 $params = json_decode($json);
 
-$stmt = $db->prepare("DELETE FROM reservations WHERE id = :id");
+$stmt = $db->prepare("DELETE FROM rezerwacje WHERE RezerwacjaID = :id");
 $stmt->bindParam(':id', $params->id);
 $stmt->execute();
 
