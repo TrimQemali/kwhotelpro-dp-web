@@ -6,7 +6,7 @@ $params = json_decode($json);
 
 class Result {}
 
-$stmt = $db->prepare("SELECT * FROM reservations WHERE NOT ((end <= :start) OR (start >= :end)) AND id <> :id AND room_id = :resource");
+$stmt = $db->prepare("SELECT RezerwacjaID, PokojID, DataOd, DataDo, Nazwisko, rezerwacje.Uwagi FROM banjisht.rezerwacje, banjisht.klienci where rezerwacje.KlientID=klienci.KlientID AND NOT ((DataDo <= :start) OR (DataOD >= :end)) AND rezerwacje.RezerwacjaID <> :id AND rezerwacje.PokojID = :resource");
 $stmt->bindParam(':start', $params->newStart);
 $stmt->bindParam(':end', $params->newEnd);
 $stmt->bindParam(':id', $params->id);
@@ -23,8 +23,7 @@ if ($overlaps) {
     echo json_encode($response);
     exit;
 }
-
-$stmt = $db->prepare("UPDATE reservations SET start = :start, end = :end, room_id = :resource WHERE id = :id");
+$stmt = $db->prepare("UPDATE rezerwacje SET DataOd = :start, DataDo = :end, PokojID = :resource WHERE RezerwacjaID = :id");
 $stmt->bindParam(':start', $params->newStart);
 $stmt->bindParam(':end', $params->newEnd);
 $stmt->bindParam(':id', $params->id);
