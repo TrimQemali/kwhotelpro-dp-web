@@ -24,7 +24,7 @@ foreach($result as $row) {
     $e->start = $row['DataOd'];
     $e->end = $row['DataDo'];
     $e->resource = $row['PokojID'];
-    $e->bubbleHtml = "Reservation details: <br/>";//.$e->text;
+    $e->bubbleHtml = "Reservation details: <br/>".$e->id;
     
     // additional properties
     //$e->status = $row['status'];

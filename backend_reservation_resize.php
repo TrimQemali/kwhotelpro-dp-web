@@ -6,7 +6,7 @@ $params = json_decode($json);
 
 class Result {}
 
-$stmt = $db->prepare("UPDATE reservations SET start = :start, end = :end WHERE id = :id");
+$stmt = $db->prepare("UPDATE rezerwacje SET DataOd = :start, DataDo = :end WHERE RezerwacjaID = :id");
 $stmt->bindParam(':start', $params->newStart);
 $stmt->bindParam(':end', $params->newEnd);
 $stmt->bindParam(':id', $params->id);
