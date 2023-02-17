@@ -26,7 +26,8 @@ foreach($result as $row) {
     $e->resource = $row['PokojID'];
     $e->cost = $row['Cena'];
     $e->paid = $row['Wplata'];
-    $e->bubbleHtml = "Reservation ID:".$e->id."<br /> Total cost: ".$e->cost."<br /> Paid: ".$e->paid;
+    $e->comment = $row['Uwagi'];
+    $e->bubbleHtml = "Reservation ID:".$e->id."<br /> Total cost: ".$e->cost."<br /> Paid: ".$e->paid."<br /> Comment: ".$e->comment;
     
     //$e->status = $row['status'];
     //$e->paid = intval($row['paid']);
