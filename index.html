@@ -214,6 +214,13 @@
         ]
     });
 
+    dp.onBeforeCellRender = (args) => {
+      if (args.cell.start < DayPilot.Date.today()) {
+        args.cell.disabled = true;
+        args.cell.backColor = "#eee";
+      }
+    };
+  
     dp.onBeforeRowHeaderRender = (args) => {
         const beds = (count) => {
             return count + " bed" + (count > 1 ? "s" : "");
